@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import Cards from "./components/Cards.jsx";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
+import Details from "./components/Details";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -68,7 +69,8 @@ function App() {
       <Navbar onSearch={onSearch} onRandom={onRandom}/>
       <Routes className={styles.App}>
         <Route path="/" element={<Cards characters={characters} onClose={onClose}/>} />
-        <Route path="/home" element={<Cards characters={characters} />} />
+        <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>} />
+        <Route exact path="/details/:id" element={<Details/>}></Route>
       </Routes>
     </div>
   );
