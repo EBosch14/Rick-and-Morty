@@ -1,0 +1,32 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+}
+
+.links li {
+  border: 1px white solid;
+  color: #ebf1f1;
+  transition: background-color 0.6s ease, color 0.6s ease;
+  cursor: pointer;
+}
+
+.links li a {
+  border-radius: 1rem;
+  display: block;
+  color: #ebf1f1;
+  padding: 0.5rem 1rem;
+}
+
+.links li:hover {
+  background-color: #ebf1f1;
+}
+.links li:hover a {
+  color: #1f1f1f;
+}
