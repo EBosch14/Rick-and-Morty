@@ -5,6 +5,14 @@
   width: 100%;
 }
 
+.random{
+  background-color: rgb(224, 159, 72);
+}
+
+.random:hover{
+  background-color: rgb(160, 98, 18);
+}
+
 .links {
   display: flex;
   gap: 2rem;

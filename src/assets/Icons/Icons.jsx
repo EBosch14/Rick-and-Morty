@@ -2,23 +2,23 @@ import styles from './Icons.module.css';
 
 export function IconRaM() {
   return (
-    <svg className={styles.RickAndMorty} xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 331" version="1.1" preserveAspectRatio="xMidYMid">
+    <svg className={styles.RickAndMorty} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 331" version="1.1" preserveAspectRatio="xMidYMid">
     <defs>
         <linearGradient x1="55.342075%" y1="0%" x2="42.816933%" y2="42.862855%" id="piniaLinearGradient-1">
-            <stop stop-color="#52CE63" offset="0%"/>
-            <stop stop-color="#51A256" offset="100%"/>
+            <stop stopColor="#52CE63" offset="0%"/>
+            <stop stopColor="#51A256" offset="100%"/>
         </linearGradient>
         <linearGradient x1="55.348642%" y1="0%" x2="42.808103%" y2="42.862855%" id="piniaLinearGradient-2">
-            <stop stop-color="#52CE63" offset="0%"/>
-            <stop stop-color="#51A256" offset="100%"/>
+            <stop stopColor="#52CE63" offset="0%"/>
+            <stop stopColor="#51A256" offset="100%"/>
         </linearGradient>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="58.811243%" id="piniaLinearGradient-3">
-            <stop stop-color="#8AE99C" offset="0%"/>
-            <stop stop-color="#52CE63" offset="100%"/>
+            <stop stopColor="#8AE99C" offset="0%"/>
+            <stop stopColor="#52CE63" offset="100%"/>
         </linearGradient>
         <linearGradient x1="51.37763%" y1="17.472551%" x2="44.584719%" y2="100%" id="piniaLinearGradient-4">
-            <stop stop-color="#FFE56C" offset="0%"/>
-            <stop stop-color="#FFC63A" offset="100%"/>
+            <stop stopColor="#FFE56C" offset="0%"/>
+            <stop stopColor="#FFC63A" offset="100%"/>
         </linearGradient>
     </defs>
     <g>

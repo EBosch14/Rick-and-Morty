@@ -3,7 +3,7 @@ import style from "./Navbar.module.css";
 import SearchBar from "./SearchBar";
 import { IconRaM } from "../assets/Icons/Icons";
 
-export default function Navbar() {
+export default function Navbar({onSearch, onRandom}) {
   return (
     <nav className={style.Navbar}>
       <div>
@@ -11,7 +11,8 @@ export default function Navbar() {
           <IconRaM></IconRaM>
         </Link>
       </div>
-      <SearchBar onSearch={(characterID) => window.alert(characterID)} />
+      <SearchBar onSearch={onSearch} />
+      <button className={style.random} onClick={onRandom}>Random</button>
       <ul className={style.links}>
         <li>
           <Link to="/">Home</Link>
