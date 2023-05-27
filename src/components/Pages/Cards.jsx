@@ -1,10 +1,10 @@
-import Card from "./Card";
+import Card from "../Card";
 import styles from "./Cards.module.css";
 
 export default function Cards({ characters, onClose }) {
   return (
     <div className={styles.Cards}>
-      {characters.map((el) => (
+      {characters.length ? characters.map((el) => (
         <Card
           key={el.id}
           name={el.name}
@@ -16,7 +16,9 @@ export default function Cards({ characters, onClose }) {
           onClose={onClose}
           id={el.id}
         ></Card>
-      ))}
+      )) : (
+        <p>At this moment there is nothing :(</p>
+      )}
     </div>
   );
 }

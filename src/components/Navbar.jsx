@@ -7,7 +7,7 @@ export default function Navbar({onSearch, onRandom}) {
   return (
     <nav className={style.Navbar}>
       <div>
-        <Link to="/home">
+        <Link to="/">
           <IconRaM></IconRaM>
         </Link>
       </div>
@@ -15,7 +15,7 @@ export default function Navbar({onSearch, onRandom}) {
       <button className={style.random} onClick={onRandom}>Random</button>
       <ul className={style.links}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
         </li>
         <li>
           <Link to="about">About Us</Link>
