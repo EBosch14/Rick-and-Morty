@@ -38,9 +38,20 @@ button {
   transition: background-color 0.3s ease;
 }
 
+button:disabled {
+  background-color: gray;
+  color: black;
+  cursor: not-allowed;
+}
+
 button:hover {
   background-color: #45adff;
   color: #fff;
+}
+
+button:disabled:hover {
+  background-color: gray;
+  color: black;
 }
 
 code {

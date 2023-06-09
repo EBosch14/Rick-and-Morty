@@ -51,12 +51,6 @@
   margin-top: 5px;
 }
 
-.loginButton:disabled {
-  background-color: gray;
-  color: black;
-  cursor: not-allowed;
-}
-
 .registerButton{
   background-color: #4A8806;
 }

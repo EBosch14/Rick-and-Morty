@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import s from "./LoginPage.module.css";
 import { useState } from "react";
 
@@ -7,6 +7,16 @@ export default function LoginPage() {
     username: "",
     password: "",
   });
+  const [errors, setErrors] = useState({
+
+  })
+  const navigate = useNavigate()
+
+  const handleSumbit = (event) => {
+    event.preventDefault()
+    console.log(userData);
+    if (userData.username && userData.password) navigate('/home') 
+  }
 
   const handleChange = (event) => {
     setUserData({
@@ -23,7 +33,7 @@ export default function LoginPage() {
           alt="rickandmortyLogin"
         />
       </div>
-      <form action="">
+      <form action="" onSubmit={handleSumbit}>
         <div className={s.username}>
           <label htmlFor="username">Username</label>
           <input name="username" type="text" onChange={handleChange} />
@@ -32,7 +42,7 @@ export default function LoginPage() {
           <label htmlFor="password">Password</label>
           <input name="password" type="password" onChange={handleChange} />
         </div>
-        <button className={s.loginButton} type="submit">
+        <button className={s.loginButton} type="submit" disabled={!(userData.password && userData.username)}>
           Log In
         </button>
       </form>
