@@ -5,9 +5,12 @@
   text-decoration: none;
   list-style-type: none;
 }
+html{
+  background-color: #0D1321;
+}
 
 a{
-  color: #ebf1f1;
+  color: #DCE1DE;
 }
 
 #root {
@@ -19,10 +22,7 @@ a{
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 1.5;
-  background-color: #1f1f1f;
-  color: #ebf1f1;
-  height: 100vh;
-
+  color: #DCE1DE;
 }
 
 /* Estilos para botones */
