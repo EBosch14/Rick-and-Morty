@@ -5,24 +5,24 @@
   text-decoration: none;
   list-style-type: none;
 }
-html{
-  background-color: #0D1321;
+html {
+  background-color: #0d1321;
 }
 
-a{
-  color: #DCE1DE;
+a {
+  color: #dce1de;
 }
 
 #root {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 1.5;
-  color: #DCE1DE;
+  color: #dce1de;
 }
 
 /* Estilos para botones */
@@ -44,6 +44,6 @@ button:hover {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

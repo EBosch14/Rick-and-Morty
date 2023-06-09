@@ -1,0 +1,67 @@
+.LoginForm{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid wheat;
+  border-radius: 16px;
+  width: 365px;
+  height: 600px;
+  padding: 20px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.LoginForm .imgLogin{
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.LoginForm .imgLogin > img{
+  width: 100%;
+  height: 100%;
+  scale: 1.3;
+  object-fit: cover;
+}
+
+.LoginForm form{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.LoginForm form > div{
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: large;
+}
+
+.LoginForm form > div > input{
+  height: 30px;
+  padding: 4px 8px;
+}
+
+.registerButton{
+  margin-top: 10px;
+}
+
+.registerButton{
+  background-color: #4A8806;
+}
+
+.registerButton:hover{
+  background-color: #58a208;
+}
+
+.registerButton:disabled {
+  background-color: gray;
+  color: black;
+  cursor: not-allowed;
+}

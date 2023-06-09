@@ -6,6 +6,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Details from "./components/Pages/Details";
 import Error from "./components/Pages/Error";
 import LoginPage from "./components/Pages/LoginPage";
+import RegisterPage from "./components/Pages/RegisterPage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -71,7 +72,7 @@ function App() {
 
   return (
     <div className={styles.App}>
-      {location.pathname !== "/" && (
+      {(location.pathname !== "/" && location.pathname !== "/register") && (
         <Navbar onSearch={onSearch} onRandom={onRandom} />
       )}
       <Routes className={styles.App}>
@@ -81,6 +82,7 @@ function App() {
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route exact path="/details/:id" element={<Details />}></Route>
+        <Route path="/register" element={<RegisterPage/>}></Route>
         <Route path="*" element={<Error />}></Route>
       </Routes>
     </div>

@@ -32,7 +32,7 @@ export default function Card(props) {
         </div>
       </div>
       <div className="buttons">
-        <button className="close-button">
+        <button className="close-button" onClick={() => props.onClose(props.id)}>
           <span className="iconClose">
             <IconClose></IconClose>
           </span>
@@ -42,13 +42,12 @@ export default function Card(props) {
             <IconFav></IconFav>
           </span>
         </button>
-        <button className="moreInfo-button">
+        <Link className="moreInfo-button" to={`/Details/${props.id}`}>
           <span className="iconInfo">
             <IconInfo></IconInfo>
           </span>
-        </button>
+        </Link>
       </div>
-      <div className="blob-down"></div>
     </div>
   );
 }

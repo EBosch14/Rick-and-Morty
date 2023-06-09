@@ -1,16 +1,19 @@
-import { Link } from "react-router-dom";
-import s from "./LoginPage.module.css";
+import s from "./RegisterPage.module.css"
 
-export default function LoginPage() {
+export default function RegisterPage() {
   return (
     <div className={s.LoginForm}>
       <div className={s.imgLogin}>
         <img
-          src="https://i.etsystatic.com/26896560/r/il/2a27fb/2903798650/il_1140xN.2903798650_d8hi.jpg"
+          src="https://wallpapercave.com/wp/wp5015290.png"
           alt="rickandmortyLogin"
         />
       </div>
       <form action="">
+        <div className={s.email}>
+          <label htmlFor="email">E-mail</label>
+          <input type="email" />
+        </div>
         <div className={s.username}>
           <label htmlFor="username">Username</label>
           <input type="text" />
@@ -19,14 +22,10 @@ export default function LoginPage() {
           <label htmlFor="password">Password</label>
           <input type="password" />
         </div>
-        <button className={s.loginButton} type="submit">
-          Log In
+        <button className={s.registerButton} type="submit" disabled>
+          Register
         </button>
       </form>
-      or
-      <Link to={'/register'}>
-        <button className={s.registerButton}>Register</button>
-      </Link>
     </div>
   );
 }
