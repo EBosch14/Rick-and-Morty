@@ -1,12 +1,12 @@
 import { useState } from "react";
 import styles from "./App.module.css";
-import Cards from "./components/Pages/Cards.jsx";
+import Cards from "./Pages/Cards.jsx";
 import Navbar from "./components/Navbar";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Details from "./components/Pages/Details";
-import Error from "./components/Pages/Error";
-import LoginPage from "./components/Pages/LoginPage";
-import RegisterPage from "./components/Pages/RegisterPage";
+import Details from "./Pages/Details";
+import Error from "./Pages/Error";
+import LoginPage from "./Pages/LoginPage";
+import RegisterPage from "./Pages/RegisterPage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
