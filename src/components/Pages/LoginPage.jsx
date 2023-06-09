@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
 import s from "./LoginPage.module.css";
+import { useState } from "react";
 
 export default function LoginPage() {
+  const [userData, setUserData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleChange = (event) => {
+    setUserData({
+      ...userData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <div className={s.LoginForm}>
       <div className={s.imgLogin}>
@@ -13,18 +26,18 @@ export default function LoginPage() {
       <form action="">
         <div className={s.username}>
           <label htmlFor="username">Username</label>
-          <input type="text" />
+          <input name="username" type="text" onChange={handleChange} />
         </div>
         <div className={s.password}>
           <label htmlFor="password">Password</label>
-          <input type="password" />
+          <input name="password" type="password" onChange={handleChange} />
         </div>
         <button className={s.loginButton} type="submit">
           Log In
         </button>
       </form>
       or
-      <Link to={'/register'}>
+      <Link to={"/register"}>
         <button className={s.registerButton}>Register</button>
       </Link>
     </div>

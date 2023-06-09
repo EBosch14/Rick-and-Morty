@@ -77,12 +77,11 @@ function App() {
       )}
       <Routes className={styles.App}>
         <Route path="/" element={<LoginPage />} />
-        <Route
-          path="/home"
+        <Route path="/register" element={<RegisterPage/>}></Route>
+        <Route path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route exact path="/details/:id" element={<Details />}></Route>
-        <Route path="/register" element={<RegisterPage/>}></Route>
         <Route path="*" element={<Error />}></Route>
       </Routes>
     </div>
