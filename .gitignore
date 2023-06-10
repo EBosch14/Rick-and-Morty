@@ -25,3 +25,4 @@ Client/*.local
 
 # Server
 Server/node_modules
+Server/.env
