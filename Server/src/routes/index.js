@@ -1,8 +1,9 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const routes = express.Router();
 
-const routerCharacters = require('./characters')
+const routerCharacters = require("./characters");
+const routerLogin = require("./login");
 
-router.use('/rickandmorty/character', routerCharacters)
+routes.use("/rickandmorty", routerCharacters, routerLogin);
 
-module.exports = router
+module.exports = routes;
