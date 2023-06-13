@@ -8,7 +8,7 @@ router.get("/character/:id", async (req, res) => {
 
   try {
     const character = await getCharById(id);
-    res.status(200).json({ character });
+    res.status(200).json(character);
   } catch (error) {
     res.status(404).json({ err: error.message });
   }
