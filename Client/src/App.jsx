@@ -11,6 +11,7 @@ import RegisterPage from "./Pages/RegisterPage";
 function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
+  const [access, setAccess] = useState(false)
 
   const onSearch = (id) => {
     const isCharacterExists = characters.some(
@@ -65,7 +66,7 @@ function App() {
         }
       })
       .catch((error) => {
-        console.error("Error fetching character:", error);
+        console.error("Error fetching character: ", error);
         window.alert("Failed to fetch character. Please try again.");
       });
   };

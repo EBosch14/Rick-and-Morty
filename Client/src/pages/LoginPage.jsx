@@ -1,22 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
 import s from "./LoginPage.module.css";
 import { useState } from "react";
+import { login } from "../services/validateLogin";
 
 export default function LoginPage() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     username: "",
     password: "",
   });
-  const [errors, setErrors] = useState({
 
-  })
-  const navigate = useNavigate()
-
-  const handleSumbit = (event) => {
-    event.preventDefault()
-    console.log(userData);
-    if (userData.username && userData.password) navigate('/home') 
-  }
+  const handleSumbit = async(event) => {
+    event.preventDefault();
+    const access = await login(userData)
+    if (access) navigate('/home')
+  };
 
   const handleChange = (event) => {
     setUserData({
@@ -42,7 +40,11 @@ export default function LoginPage() {
           <label htmlFor="password">Password</label>
           <input name="password" type="password" onChange={handleChange} />
         </div>
-        <button className={s.loginButton} type="submit" disabled={!(userData.password && userData.username)}>
+        <button
+          className={s.loginButton}
+          type="submit"
+          disabled={!(userData.password && userData.username)}
+        >
           Log In
         </button>
       </form>
