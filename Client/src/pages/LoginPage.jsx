@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import s from "./LoginPage.module.css";
 import { useState } from "react";
-import { login } from "../services/validateLogin";
+import { login } from "../services/validateLogin.js";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ export default function LoginPage() {
     event.preventDefault();
     const access = await login(userData)
     if (access) navigate('/home')
+    else alert('Invalid credentials')
   };
 
   const handleChange = (event) => {
