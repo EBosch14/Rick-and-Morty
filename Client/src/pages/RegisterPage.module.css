@@ -7,11 +7,12 @@
   border: 2px solid #DCE1DE;
   border-radius: 16px;
   width: 365px;
-  height: 600px;
+  height: 630px;
   padding: 20px 34px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
 }
 
@@ -30,11 +31,11 @@
 }
 
 .LoginForm form{
-  margin-top: 20px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 20px;
+  gap: 10px;
 }
 
 .LoginForm form > div{
@@ -42,6 +43,7 @@
   flex-direction: column;
   text-transform: uppercase;
   font-size: large;
+  height: 80px;
 }
 
 .LoginForm form > div > input{
@@ -65,4 +67,20 @@
   background-color: gray;
   color: black;
   cursor: not-allowed;
+}
+
+.errorMsg {
+  color: #c22020;
+  font-size: 12px;
+  margin-top: 5px;
+  text-transform: capitalize;
+}
+
+.errorField{
+  border: #c22020 2px solid;
+  border-radius: 3px;
+}
+
+.errorField:focus-visible{
+  outline-color: #c22020;
 }

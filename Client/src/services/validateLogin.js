@@ -1,15 +1,14 @@
 import axios from "axios";
 
-export async function login(userData) {
+export async function validateLogin(userData, setAccess, access, navigate) {
   try {
-    const { data } = await axios.get(
+    const response = await axios.get(
       `http://localhost:4444/rickandmorty/login?user=${userData.username}&pass=${userData.password}`
     );
-    const { access } = data;
-    return access;
+    const data = response.data;
+    setAccess(data.access);
+    access && navigate('/home')
   } catch (error) {
     throw new Error(error);
   }
 }
-
-

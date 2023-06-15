@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { validateUser } = require("../controllers/validateUser");
 
-router.get("/login", (req, res) => {
+router.post("/login", (req, res) => {
   const { user, pass } = req.query;
   try {
     const validate = validateUser(user, pass);

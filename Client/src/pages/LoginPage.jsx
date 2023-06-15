@@ -1,20 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import s from "./LoginPage.module.css";
 import { useState } from "react";
-import { login } from "../services/validateLogin.js";
+import { validateLogin } from "../services/validateLogin.js";
 
-export default function LoginPage() {
+export default function LoginPage({access, setAccess}) {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     username: "",
     password: "",
   });
 
-  const handleSumbit = async(event) => {
+  const handleSumbit = (event) => {
     event.preventDefault();
-    const access = await login(userData)
-    if (access) navigate('/home')
-    else alert('Invalid credentials')
+    validateLogin(userData, setAccess, access, navigate)
   };
 
   const handleChange = (event) => {
@@ -41,6 +39,7 @@ export default function LoginPage() {
           <label htmlFor="password">Password</label>
           <input name="password" type="password" onChange={handleChange} />
         </div>
+        {}
         <button
           className={s.loginButton}
           type="submit"
@@ -50,9 +49,7 @@ export default function LoginPage() {
         </button>
       </form>
       or
-      <Link to={"/register"}>
-        <button className={s.registerButton}>Register</button>
-      </Link>
+      <button className={s.registerButton} onClick={() => navigate("/register")}>Register</button>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import Cards from "./pages/Cards.jsx";
 import Navbar from "./components/Navbar";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Details from "./pages/Details";
 import Error from "./pages/Error";
 import LoginPage from "./pages/LoginPage";
@@ -14,6 +14,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
   const [access, setAccess] = useState(false);
+  const navigate = useNavigate()
 
   const onSearch = (id) => {
     if (characterExists(characters, id)) {
@@ -41,13 +42,23 @@ function App() {
     setCharacters([...charactersFilter]);
   };
 
+  //check if access is true to go /home
+  useEffect(() => {
+    !access ? navigate('/') : navigate('/home')
+  }, [access])
+
+  //check if you logout
+  useEffect(() => {
+    location.pathname === "/" && setAccess(false)
+  }, [location.pathname])
+
   return (
     <div className={styles.App}>
       {location.pathname !== "/" && location.pathname !== "/register" && (
         <Navbar onSearch={onSearch} onRandom={onRandom} />
       )}
       <Routes className={styles.App}>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage access={access} setAccess={setAccess}/>} />
         <Route path="/register" element={<RegisterPage />}></Route>
         <Route
           path="/home"
