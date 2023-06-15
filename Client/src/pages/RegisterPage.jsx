@@ -4,16 +4,16 @@ import { validateRegister } from "../utils/validateRegister";
 
 export default function RegisterPage() {
   const [fromComplete, setFromComplete] = useState(false);
-  const [focus, setFocus] = useState({
-    email: false,
-    username: false,
-    password: false,
-  });
+  // const [focus, setFocus] = useState({
+  //   email: false,
+  //   username: false,
+  //   password: false,
+  // });
 
   const [inputs, setInputs] = useState({
-    email: undefined,
-    username: undefined,
-    password: undefined,
+    email: "",
+    username: "",
+    password: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -46,13 +46,23 @@ export default function RegisterPage() {
     }
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     setErrors(validateRegister(inputs, focus));
   }, [inputs, focus]);
 
   useEffect(() => {
-    setFromComplete(inputs.email && inputs.username && inputs.password && Object.keys(errors).length === 0);
+    setFromComplete(
+      inputs.email &&
+        inputs.username &&
+        inputs.password &&
+        Object.keys(errors).length === 0
+    );
   }, [errors]);
+
+  const handleSumbit = (event) => {
+    event.preventDefault()
+    console.log('tu mina');
+  }
 
   return (
     <div className={s.LoginForm}>
@@ -62,7 +72,7 @@ export default function RegisterPage() {
           alt="rickandmortyLogin"
         />
       </div>
-      <form action="">
+      <form action="" onSubmit={handleSumbit}>
         <div className={s.email}>
           <label htmlFor="email">E-mail</label>
           <input
@@ -73,12 +83,8 @@ export default function RegisterPage() {
             onChange={handleChange}
             onKeyDown={handleChange}
             onPaste={(event) => event.preventDefault()}
-            onFocus={(event) =>
-              setFocus({ ...focus, [event.target.name]: true })
-            }
-            onBlur={(event) =>
-              setFocus({ ...focus, [event.target.name]: false })
-            }
+            // onFocus={() => setFocus({ ...focus, email: true })}
+            // onBlur={() => setFocus({ ...focus, email: false })}
           />
           {errors.email && <p className={s.errorMsg}>{errors.email}</p>}
         </div>
@@ -92,12 +98,8 @@ export default function RegisterPage() {
             onChange={handleChange}
             onKeyDown={handleChange}
             onPaste={(event) => event.preventDefault()}
-            onFocus={(event) =>
-              setFocus({ ...focus, [event.target.name]: true })
-            }
-            onBlur={(event) =>
-              setFocus({ ...focus, [event.target.name]: false })
-            }
+            // onFocus={() => setFocus({ ...focus, username: true })}
+            // onBlur={() => setFocus({ ...focus, username: false })}
           />
           {errors.username && <p className={s.errorMsg}>{errors.username}</p>}
         </div>
@@ -109,12 +111,8 @@ export default function RegisterPage() {
             type="password"
             value={inputs.password}
             onChange={handleChange}
-            onFocus={(event) =>
-              setFocus({ ...focus, [event.target.name]: true })
-            }
-            onBlur={(event) =>
-              setFocus({ ...focus, [event.target.name]: false })
-            }
+            // onFocus={() => setFocus({ ...focus, password: true })}
+            // onBlur={() => setFocus({ ...focus, password: false })}
           />
           {errors.password && <p className={s.errorMsg}>{errors.password}</p>}
         </div>
