@@ -14,6 +14,7 @@ export default function LoginPage({setAccess}) {
     event.preventDefault();
     try {
       const data = await validateLogin(userData)
+      console.log(data);
       setAccess(data.access)
       // if (data.access) navigate('/home')
     } catch ({response}) {

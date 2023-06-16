@@ -163,7 +163,7 @@
   height: 22px;
 }
 
-.buttons .fav-button svg {
+.buttons .fav-button svg, .buttons .fav-button-active svg {
   width: 28px;
   height: 28px;
 }
@@ -178,7 +178,12 @@
   fill: #6e0101;
 }
 
-.buttons .fav-button {
+.buttons .fav-button-active {
+  background-color: #dce1de;
+  fill: #6e0101;
+}
+
+.buttons .fav-button,.buttons .fav-button-active {
   margin-top: 10px;
   width: 56px;
   height: 56px;

@@ -1,20 +1,33 @@
 import { Link } from "react-router-dom";
 import "./Card.css";
 import { IconClose, IconFav, IconInfo } from "../assets/Icons/Icons";
+import { connect } from "react-redux";
+import { addFav, removeFav } from "../redux/actions/actions";
+import { useEffect, useState } from "react";
 
-export default function Card(props) {
+function Card(props) {
+  const { addFav, removeFav, myFavorites } = props;
+  const [isFav, setIsFav] = useState(false);
+
+  const handleFavorites = () => {
+    if (isFav) {
+      setIsFav(false);
+      removeFav(props.id);
+    } else {
+      setIsFav(true);
+      addFav(props);
+    }
+  };
+
+  useEffect(() => {
+    myFavorites.forEach(favs => {
+      if (favs.id === props.id) {
+        setIsFav(true)
+      }
+    })
+  }, [myFavorites]);
+
   return (
-    // <div key={props.id} className={styles.Card}>
-    //    <button onClick={()=> props.onClose(props.id)}>X</button>
-    //    <Link to={`/details/${props.id}`}>
-    //       <h2>{props.name}</h2>
-    //    </Link>
-    //    <h2>{props.status}</h2>
-    //    <h2>{props.species}</h2>
-    //    <h2>{props.gender}</h2>
-    //    <h2>{props.origin}</h2>
-    //    <img src={props.image} alt={props.name}/>
-    // </div>
     <div className="card">
       <div className="blob"></div>
       <span className="img">
@@ -32,17 +45,23 @@ export default function Card(props) {
         </div>
       </div>
       <div className="buttons">
-        <button className="close-button" onClick={() => props.onClose(props.id)}>
+        <button
+          className="close-button"
+          onClick={() => props.onClose(props.id)}
+        >
           <span className="iconClose">
             <IconClose></IconClose>
           </span>
         </button>
-        <button className="fav-button">
+        <button
+          className={isFav ? "fav-button-active" : "fav-button"}
+          onClick={handleFavorites}
+        >
           <span className="iconFav">
             <IconFav></IconFav>
           </span>
         </button>
-        <Link className="moreInfo-button" to={`/Details/${props.id}`}>
+        <Link className="moreInfo-button" to={`/details/${props.id}`}>
           <span className="iconInfo">
             <IconInfo></IconInfo>
           </span>
@@ -51,3 +70,18 @@ export default function Card(props) {
     </div>
   );
 }
+
+function mapStateToProp(state) {
+  return {
+    myFavorites: state.myFavorites,
+  };
+}
+
+function mapDispatchToProp(dispatch) {
+  return {
+    addFav: (character) => dispatch(addFav(character)),
+    removeFav: (id) => dispatch(removeFav(id)),
+  };
+}
+
+export default connect(mapStateToProp, mapDispatchToProp)(Card);
