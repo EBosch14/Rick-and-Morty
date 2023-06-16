@@ -8,6 +8,6 @@ export async function validateLogin(userData) {
     const data = response.data;
     return data
   } catch (error) {
-    throw new Error(error);
+    throw error
   }
 }

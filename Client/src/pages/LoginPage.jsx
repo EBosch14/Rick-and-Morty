@@ -16,9 +16,12 @@ export default function LoginPage({setAccess}) {
       const data = await validateLogin(userData)
       setAccess(data.access)
       // if (data.access) navigate('/home')
-      if(!data.access) console.log('datos incorrectos');
-    } catch (error) {
-      console.error(error);
+    } catch ({response}) {
+      if(response.status === 401) {
+        alert(response.data)
+      } else {
+        console.log(response);
+      }
     }
   };
 

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import s from "./RegisterPage.module.css";
 import { validateRegister } from "../utils/validateRegister";
-import axios from 'axios'
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
+  const navigate = useNavigate();
   const [fromComplete, setFromComplete] = useState(false);
   // const [focus, setFocus] = useState({
   //   email: false,
@@ -60,11 +62,23 @@ export default function RegisterPage() {
     );
   }, [errors]);
 
-  const handleSumbit = async(event) => {
+  const handleSumbit = async (event) => {
     event.preventDefault();
-    const res = await axios.post('http://localhost:4444/rickandmorty/register', inputs)
-    const data = res.data
-    console.log(data);
+    try {
+      const res = await axios.post(
+        "http://localhost:4444/rickandmorty/register",
+        inputs
+      );
+      const data = res.data;
+      console.log(data);
+      navigate("/");
+    } catch ({response}) {
+      if (response.status === 401){
+        alert(response.data)
+      } else {
+        console.log(response);
+      }
+    }
     // setInputs({
     //   email: "",
     //   username: "",
