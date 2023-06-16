@@ -2,7 +2,7 @@ const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const regexUser = /^[^\s]{4,}$/;
 const regexPass = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{6,}$/;
 
-export function validateRegister(inputs, focus) {
+export function validateRegister(inputs) {
   const errors = {};
 
   // if (inputs.email === "" && !focus.email)

@@ -3,14 +3,14 @@ const router = express.Router();
 const { validateUser } = require("../controllers/validateUser");
 
 router.post("/login", (req, res) => {
-  const { user, pass } = req.query;
+  const { username, password } = req.body;
   try {
-    const validate = validateUser(user, pass);
-    res.status(200).json(validate);
-    //if (validate.access) res.status(200).json(validate);
-    //else res.status(422).json(validate);
+    const validate = validateUser(username, password);
+    res.json(validate)
+    // if (validate.access) res.status(200).json(validate);
+    // else res.status(401).json(validate);
   } catch (error) {
-    res.status(404).json({ err: error.message });
+    res.status(410).json({ err: error.message });
   }
 });
 

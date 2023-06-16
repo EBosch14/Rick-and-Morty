@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(logger("dev"));
 
 //Middleware for forms-data
-//const urlencoded = express.urlencoded({ extended: false });
+app.use(express.urlencoded({ extended: false }))
 
 app.use("/", routes);
 

@@ -1,8 +1,11 @@
-const { username, password } = require("../utils/users");
+const users = require("../utils/users");
 
-const validateUser = (user, pass) => {
-  if (!user || !pass) throw new Error("Missing data");
-  return {access : (user === username && pass == password)}
+const validateUser = (username, password) => {
+  if (!username || !password) throw new Error("Missing data");
+  const foundUser = users.find(
+    (el) => el.user === username && el.pass === password
+  );
+  return { access: !!foundUser };
 };
 
 module.exports = { validateUser };

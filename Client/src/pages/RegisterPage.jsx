@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import s from "./RegisterPage.module.css";
 import { validateRegister } from "../utils/validateRegister";
+import axios from 'axios'
 
 export default function RegisterPage() {
   const [fromComplete, setFromComplete] = useState(false);
@@ -47,22 +48,29 @@ export default function RegisterPage() {
   };
 
   useEffect(() => {
-    setErrors(validateRegister(inputs, focus));
-  }, [inputs, focus]);
+    setErrors(validateRegister(inputs));
+  }, [inputs]);
 
   useEffect(() => {
     setFromComplete(
-      inputs.email &&
-        inputs.username &&
-        inputs.password &&
+      inputs.email !== "" &&
+        inputs.username !== "" &&
+        inputs.password !== "" &&
         Object.keys(errors).length === 0
     );
   }, [errors]);
 
-  const handleSumbit = (event) => {
-    event.preventDefault()
-    console.log('tu mina');
-  }
+  const handleSumbit = async(event) => {
+    event.preventDefault();
+    const res = await axios.post('http://localhost:4444/rickandmorty/register', inputs)
+    const data = res.data
+    console.log(data);
+    // setInputs({
+    //   email: "",
+    //   username: "",
+    //   password: "",
+    // })
+  };
 
   return (
     <div className={s.LoginForm}>
@@ -72,7 +80,7 @@ export default function RegisterPage() {
           alt="rickandmortyLogin"
         />
       </div>
-      <form action="" onSubmit={handleSumbit}>
+      <form action="/register" onSubmit={handleSumbit} method="POST">
         <div className={s.email}>
           <label htmlFor="email">E-mail</label>
           <input

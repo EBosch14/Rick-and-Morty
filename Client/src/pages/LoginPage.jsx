@@ -1,18 +1,25 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import s from "./LoginPage.module.css";
 import { useState } from "react";
 import { validateLogin } from "../services/validateLogin.js";
 
-export default function LoginPage({access, setAccess}) {
+export default function LoginPage({setAccess}) {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     username: "",
     password: "",
   });
 
-  const handleSumbit = (event) => {
+  const handleSumbit = async (event) => {
     event.preventDefault();
-    validateLogin(userData, setAccess, access, navigate)
+    try {
+      const data = await validateLogin(userData)
+      setAccess(data.access)
+      // if (data.access) navigate('/home')
+      if(!data.access) console.log('datos incorrectos');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleChange = (event) => {
@@ -30,7 +37,7 @@ export default function LoginPage({access, setAccess}) {
           alt="rickandmortyLogin"
         />
       </div>
-      <form action="" onSubmit={handleSumbit}>
+      <form action="/login" onSubmit={handleSumbit} method="POST">
         <div className={s.username}>
           <label htmlFor="username">Username</label>
           <input name="username" type="text" onChange={handleChange} />
