@@ -15,8 +15,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.json());
 app.use(logger("dev"));
+app.use(express.json());
 
 //Middleware for forms-data
 app.use(express.urlencoded({ extended: false }))
