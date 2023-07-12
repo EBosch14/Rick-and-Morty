@@ -2,7 +2,7 @@
 
 Welcome to the documentation of the Full Stack project based on the Rick and Morty API! In this documentation, I will provide a detailed description of the technologies used, the project structure, and the implemented functionalities.
 
-**Link de la API: [Rick and Morty API](https://rickandmortyapi.com/)**
+**API Link: [Rick and Morty API](https://rickandmortyapi.com/)**
 
 
 ## Overview
